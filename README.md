@@ -1,7 +1,6 @@
 # LLaDA
 
-
-Rozpocznę przygotowywanie szczegółowego opracowania na temat rozwoju dyfuzyjnych modeli językowych, uwzględniając analizę porównawczą z tradycyjnymi podejściami autoregresywnymi. Dokument będzie obejmować matematyczne wzory, tabele porównawcze oraz szczegółowy opis metodologii i zastosowań. Po zakończeniu pracy udostępnię Ci gotowy materiał w formacie PDF zgodnym z arXiv.
+Tekst wygenerowany przez Deep Research
 
 # Rozwój dyfuzyjnych modeli językowych – porównanie podejścia autoregresywnego i dyfuzyjnego
 
