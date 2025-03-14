@@ -30,7 +30,11 @@ Kluczowym elementem jest zdefiniowanie procesu **niszczenia danych (forward proc
 
 Trenowanie modelu dyfuzyjnego odbywa się poprzez maksymalizację tzw. **dolnej granicy log-wiarygodności (ELBO)** danych treningowych. W praktyce sprowadza się to do minimalizacji oczekiwanego błędu odtworzenia na każdym etapie denoisingu. Jeśli oznaczymy przez $x^0$ oryginalną sekwencję (dane), a $x^T$ – całkowicie zamaskowaną sekwencję (szum), to trening minimalizuje sumę strat na poszczególnych krokach:
 
-<img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{\text{diff}} \;=\; \mathbb{E}_{x^0}\; \sum_{t=1}^{T} \mathbb{E}_{x^t \sim q(x^t \mid x^0)} \Big[-\log P_\theta(x^{\,t-1} \mid x^t)\Big]\,,">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://latex.codecogs.com/svg.latex?\color{white}\mathcal{L}_{\text{diff}}%20\;=\;%20\mathbb{E}_{x^0}\;%20\sum_{t=1}^{T}%20\mathbb{E}_{x^t%20\sim%20q(x^t%20\mid%20x^0)}%20\Big[-\log%20P_\theta(x^{\,t-1}%20\mid%20x^t)\Big]\,,">
+  <source media="(prefers-color-scheme: light)" srcset="https://latex.codecogs.com/svg.latex?\color{black}\mathcal{L}_{\text{diff}}%20\;=\;%20\mathbb{E}_{x^0}\;%20\sum_{t=1}^{T}%20\mathbb{E}_{x^t%20\sim%20q(x^t%20\mid%20x^0)}%20\Big[-\log%20P_\theta(x^{\,t-1}%20\mid%20x^t)\Big]\,,">
+  <img src="https://latex.codecogs.com/svg.latex?\mathcal{L}_{\text{diff}}%20\;=\;%20\mathbb{E}_{x^0}\;%20\sum_{t=1}^{T}%20\mathbb{E}_{x^t%20\sim%20q(x^t%20\mid%20x^0)}%20\Big[-\log%20P_\theta(x^{\,t-1}%20\mid%20x^t)\Big]\,,">
+</picture>
 
 gdzie $P_\theta(x^{t-1} \mid x^t)$ modeluje rozkład tokenów przed denoisingiem ($x^{t-1}$) na podstawie ich zaszumionej wersji ($x^t$). W praktyce implementacyjnej często upraszcza się to poprzez *trening z losowym krokiem* – każda próbka treningowa przyjmuje losowy poziom maskowania $t \sim \text{Unif}(0,1)$ i model uczy się rekonstruować oryginał z tak powstałej maskowanej sekwencji ([What are Large Language Diffusion with mAsking (LLaDA)? Redefining Language Generation with Diffusion Models](https://learnprompting.org/blog/large-language-diffusion-models?srsltid=AfmBOoomRpUimmugFjLV0v1gQU6cEHp2e7rSpxHKHBpoCnCzmXs2eO5x#:~:text=1,part%20of%20the%20training%20data)). Dzięki losowaniu różnych maskowań model nabywa umiejętność rekonstrukcji tekstu z dowolnego stopnia “zniszczenia”. 
 
