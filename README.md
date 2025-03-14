@@ -1,6 +1,5 @@
 # LLaDA
 
-$\mathcal{L}_{\text{diff}} \;=\; \mathbb{E}_{x^0}\; \sum_{t=1}^{T} \mathbb{E}_{x^t \sim q(x^t \mid x^0)} \Big[-\log P_\theta(x^{\,t-1} \mid x^t)\Big]\,,$
 
 Rozpocznę przygotowywanie szczegółowego opracowania na temat rozwoju dyfuzyjnych modeli językowych, uwzględniając analizę porównawczą z tradycyjnymi podejściami autoregresywnymi. Dokument będzie obejmować matematyczne wzory, tabele porównawcze oraz szczegółowy opis metodologii i zastosowań. Po zakończeniu pracy udostępnię Ci gotowy materiał w formacie PDF zgodnym z arXiv.
 
